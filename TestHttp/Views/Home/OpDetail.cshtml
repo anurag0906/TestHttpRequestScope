@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TestHttp.Models.OperationDetails>
+
+@{
+    ViewData["Title"] = "OpDetail";
+
+ var _trans=   ViewBag.Transient.ToString();
+    var _scopedOperation = ViewBag.Scoped.ToString() ;
+    var _singletonOperation = ViewBag.Singleton.ToString();
+
+}
+
+<h1>OpDetail</h1>
+
+<table class="table">
+    <h3>round # @ViewBag.Round</h3>
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpId)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpId)
+            </td>
+            <td>
+            </td>
+        </tr>
+
+    }
+    </tbody>
+</table>
+<h2> second instance </h2>
+<div>
+    <div> Transient</div>
+    <div> @_trans</div><br/>
+
+    <div> Scoped</div>
+    <div> @_scopedOperation</div><br/>
+    <div> Singleton</div>
+    <div> @_singletonOperation</div><br/>
+
+</div>
+
